@@ -31,7 +31,7 @@ while selection != "s":
         selection = input("Selection (g/a/s)? ")
         print("\n")
     else :
-        file.close
-
+        break
+file.close
 
 
