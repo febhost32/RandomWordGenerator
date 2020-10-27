@@ -7,18 +7,31 @@ print("Hello! \nType g to get words from .txt file \ntype a to add new words to 
 
 file = open("words.txt", "r+")
 words = []
-status = ""
+selection = "g"
 
 for line in file:
     words.append(line.strip())
 
 
-randomnumber = random.randint(0, len(words)-1)
-print(words[randomnumber])
+selection = input("Selection (g/a/s)? ")
+print("\n")
 
-
-
-file.close
+while selection != "s":
+    if selection == "g":
+        randomnumber = random.randint(0, len(words) - 1)
+        print(words[randomnumber])
+        print("\n")
+        selection = input("Selection (g/a/s)? ")
+        print("\n")
+    elif selection == "a":
+        print("Insert your words here : ")
+        add = "\n" + input()
+        file.write(add)
+        print("Words added! \n")
+        selection = input("Selection (g/a/s)? ")
+        print("\n")
+    else :
+        file.close
 
 
 
